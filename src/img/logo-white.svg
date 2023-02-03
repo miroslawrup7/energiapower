@@ -58,23 +58,20 @@
     <text
        xml:space="preserve"
        id="text82816"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:680.315px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect82818);fill:#f2f2f2;fill-opacity:1;stroke:none"
-       transform="translate(-55.4501,580.57516)"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:680.315px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect82818);fill:#f2f2f2;fill-opacity:1;stroke:none"
+       transform="translate(-36.428973,580.57516)"><tspan
          x="99.625"
          y="1631.8317"
-         id="tspan10268"><tspan
-           dx="0 0 0 0 0 0 0.00010681152"
-           style="font-weight:600;-inkscape-font-specification:'Montserrat, Semi-Bold'"
-           id="tspan10266">Energia</tspan></tspan></text>
+         id="tspan10388"><tspan
+           dx="0 0 0 0 0 0.00012207031"
+           id="tspan10386">Energia</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text132080"
-       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:340.157px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect132082);fill:#f2f2f2;fill-opacity:1;stroke:none"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:340.157px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect132082);fill:#f2f2f2;fill-opacity:1;stroke:none"
        transform="translate(152.26227,-30.918203)"><tspan
          x="687.07031"
          y="2693.3373"
-         id="tspan10272"><tspan
-           style="font-weight:500;-inkscape-font-specification:'Montserrat, Medium'"
-           id="tspan10270">Power</tspan></tspan></text>
+         id="tspan10390">Power</tspan></text>
   </g>
 </svg>
