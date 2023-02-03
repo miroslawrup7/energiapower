@@ -79,6 +79,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 1;
 
     .container {
         display: flex;
@@ -129,7 +130,7 @@ header {
     scroll-margin-top: 180px;
     position: relative;
     overflow: hidden;
-    z-index: -1;
+    // z-index: -1;
 
     .slides {
         display: flex;
@@ -242,7 +243,7 @@ header {
             // border: 1px solid blue;
             width: calc(50% - 30px);
             min-height: 400px;
-            z-index: -1;
+            // z-index: -1;
 
             form {
                 margin: 20px 0;

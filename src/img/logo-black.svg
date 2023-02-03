@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg824"
+   width="2806.3491"
+   height="2735.238"
+   viewBox="0 0 2806.3491 2735.238"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs828">
+    <rect
+       x="687.07119"
+       y="2380.7017"
+       width="1700.5012"
+       height="584.01052"
+       id="rect132082" />
+    <rect
+       x="99.625323"
+       y="1006.5593"
+       width="3583.0763"
+       height="1298.5646"
+       id="rect82818" />
+  </defs>
+  <g
+     id="layer1"
+     style="display:inline">
+    <path
+       style="fill:#34d1c9;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 1423.955,51.530339 89.3193,176.061991 -117.6609,-60.11873 -38.6478,-25.76517 z"
+       id="path22780" />
+    <path
+       style="fill:#34d1c9;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 1287.3996,245.62795 80.7309,72.14248 245.628,109.07255 89.3192,175.20315 -371.8773,-147.7203 -109.0725,-119.37862 z"
+       id="path36350" />
+    <path
+       style="fill:#34d1c9;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 1154.2796,422.54878 136.5554,174.34432 474.938,169.19128 73.8601,140.84959 -583.1517,-180.35618 -154.591,-234.46305 z"
+       id="path40090" />
+    <path
+       style="display:inline;fill:#24b3ab;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 1063.2427,547.93928 162.3205,283.41686 644.1293,175.20316 58.401,114.2256 -731.7308,-170.05014 -173.4855,-346.97095 z"
+       id="path44083" />
+    <path
+       style="display:inline;fill:#1a918b;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 983.37064,653.57647 -32.63588,45.51847 196.67414,504.13846 638.1174,104.7784 164.897,-67.8483 -772.0962,-152.8733 z"
+       id="path47667" />
+    <path
+       style="display:inline;fill:#106964;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 918.95772,741.17805 201.82718,570.26905 480.9498,63.5541 -186.368,81.5897 -318.6293,-30.0593 -206.98021,-648.42347 z"
+       id="path59363" />
+    <path
+       style="display:inline;fill:#0b4d49;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 849.39176,835.65034 17.17678,-19.7533 203.54486,713.69516 126.2493,9.4473 -139.9907,61.8364 z"
+       id="path64351" />
+    <text
+       xml:space="preserve"
+       id="text82816"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:680.315px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect82818);fill:#3a3a3a;fill-opacity:1;stroke:none"
+       transform="translate(-85.883903,580.57516)"><tspan
+         x="99.625"
+         y="1631.8317"
+         id="tspan851">Energia</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text132080"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:340.157px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:'Montserrat, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect132082);fill:#3a3a3a;fill-opacity:1;stroke:none"
+       transform="translate(140.84959,-30.918203)"><tspan
+         x="687.07031"
+         y="2693.3373"
+         id="tspan853">Power</tspan></text>
+  </g>
+</svg>
