@@ -1,51 +1,73 @@
 // contact form validation
 
+const formLoc = document.querySelector("#contact-form");
+
 const nameLoc = document.querySelector("#name");
 const mailLoc = document.querySelector("#mail");
 const subjectLoc = document.querySelector("#subject");
 const messageLoc = document.querySelector("#message");
 
-const nameErrLoc = document.querySelector("#name_error");
-const mailErrLoc = document.querySelector("#mail_error");
-const mailErrLoc2 = document.querySelector("#mail_error2");
-const subjectErrLoc = document.querySelector("#subject_error");
-const messageErrLoc = document.querySelector("#message_error");
-
 const buttonLoc = document.querySelector("button");
 
-const formLoc = document.querySelector("#contact-form");
-
-let validationPass = true;
-
-const validateEmpty = (e) => {
-    input = e.target;
-    validateEmptyAll(input);
-};
-
-const validateEmptyAll = (input) => {
-    if (input.value.length === 0) {
-        input.nextElementSibling.classList.add("active");
-        validationPass = false;
-        if (input.id === "mail") {
-            mailErrLoc2.classList.remove("active");
+const validateEmpty = (input, turnOnErrorShow) => {
+    if (!input.value.length) {
+        if (turnOnErrorShow) {
+            input.nextElementSibling.innerText = "To pole jest wymagane.";
+            input.classList.add("error");
+            validationPass = false;
         }
-        input.classList.add("error");
-    } else {
-        input.nextElementSibling.classList.remove("active");
+    } else if (input.nextElementSibling.innerText === "To pole jest wymagane.") {
+        input.nextElementSibling.innerText = "";
         input.classList.remove("error");
     }
-};
+}
 
-const validateAll = (e) => {
-    validationPass = true;
+const validateEmail = (input, turnOnErrorShow) => {
+    if (input.value.length) {
+        if (!String(input.value).toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+            if (turnOnErrorShow) {
+                input.nextElementSibling.innerText = "Nieprawidłowy adres e-mail.";
+                input.classList.add("error");
+                validationPass = false;
+            }
+        } else if (input.nextElementSibling.innerText === "Nieprawidłowy adres e-mail.") {
+            input.nextElementSibling.innerText = "";
+            input.classList.remove("error");
+        }
+    } else if (input.nextElementSibling.innerText === "Nieprawidłowy adres e-mail.") {
+        input.nextElementSibling.innerText = "";
+        input.classList.remove("error");
+    }
+}
+
+nameLoc.addEventListener("keyup", (e) => {
+    validateEmpty(e.target, false); 
+});
+
+mailLoc.addEventListener("keyup", (e) => {
+    validateEmpty(e.target, false); 
+    validateEmail(e.target, false); 
+});
+mailLoc.addEventListener("blur", (e) => {
+    validateEmail(e.target, true); 
+});
+
+subjectLoc.addEventListener("keyup", (e) => {
+    validateEmpty(e.target, false); 
+});
+
+messageLoc.addEventListener("keyup", (e) => {
+    validateEmpty(e.target, false); 
+});
+
+buttonLoc.addEventListener("click", (e) => {
     e.preventDefault();
-
-    validateEmptyAll(nameLoc);
-    validateEmptyAll(mailLoc);
-    validateEmptyAll(subjectLoc);
-    validateEmptyAll(messageLoc);
-
-    validateEmailAll(mailLoc);
+    let validationPass = true;
+    validateEmpty(nameLoc, true); 
+    validateEmpty(mailLoc, true); 
+    validateEmail(mailLoc, true); 
+    validateEmpty(subjectLoc, true); 
+    validateEmpty(messageLoc, true); 
 
     if (validationPass) {
         console.log("Walidacja prawidłowa! :)");
@@ -91,88 +113,36 @@ const validateAll = (e) => {
             // submit.classList.remove("loading");
             console.log(err)
         })
-        
-
-
     } else {
         console.log("Walidacja nieprawidłowa! :(");
     }
-};
+});
 
-const validateEmail = (e) => {
-    input = e.target;
-    validateEmpty(e);
-    validateEmailAll(input);
-};
+// slider
+const slidesLoc = document.querySelector(".slides");
+const slideLoc = document.querySelectorAll(".slides .slide");
+const barLoc = document.querySelectorAll(".bar");
 
-const validateEmailAll = (emailLoc) => {
-    if (
-        !String(emailLoc.value)
-            .toLowerCase()
-            .match(
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            )
-    ) {
-        if (emailLoc.value !== "") {
-            mailErrLoc2.classList.add("active");
-            validationPass = false;
-            mailLoc.classList.add("error");
-        } else {
-            mailErrLoc2.classList.remove("active");
-            validationPass = false;
-            mailLoc.classList.add("error");
-        }
-    } else {
-        if (emailLoc.value !== "") {
-            mailErrLoc2.classList.remove("active");
-            mailLoc.classList.remove("error");
-        } else {
-            mailErrLoc2.classList.remove("active");
-            validationPass = false;
-            mailLoc.classList.add("error");
-        }
+const slidesNumber = slideLoc.length
+
+if (slideLoc) {
+
+    const moveSlider = (barID) => {
+        barLoc.forEach((elem) => {
+            elem.classList.remove("active");
+        })
+
+        barLoc[barID].classList.add("active");
+
+        slidesLoc.style.left = `-${100 * barID}%`
     }
-};
 
-    nameLoc.addEventListener("blur", validateEmpty);
-    nameLoc.addEventListener("keyup", validateEmpty);
+    let i = 1;
+    window.setInterval(() => {
     
-    mailLoc.addEventListener("blur", validateEmail);
-    mailLoc.addEventListener("keyup", validateEmpty);
+        moveSlider(i);
+        i++
+        if (i === slidesNumber) { i = 0; } 
 
-    subjectLoc.addEventListener("blur", validateEmpty);
-    subjectLoc.addEventListener("keyup", validateEmpty);
-    
-    messageLoc.addEventListener("blur", validateEmpty);
-    messageLoc.addEventListener("keyup", validateEmpty);
-
-    buttonLoc.addEventListener("click", validateAll);
-
-    // slider
-    const slidesLoc = document.querySelector(".slides");
-    const slideLoc = document.querySelectorAll(".slides .slide");
-    const barLoc = document.querySelectorAll(".bar");
-
-    const slidesNumber = slideLoc.length
-
-    if (slideLoc) {
-
-        const moveSlider = (barID) => {
-            barLoc.forEach((elem) => {
-                elem.classList.remove("active");
-            })
-
-            barLoc[barID].classList.add("active");
-
-            slidesLoc.style.left = `-${100 * barID}%`
-        }
-
-        let i = 1;
-        window.setInterval(() => {
-        
-            moveSlider(i);
-            i++
-            if (i === slidesNumber) { i = 0; } 
-
-        }, 5000);
-    }
+    }, 5000);
+}

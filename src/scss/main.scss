@@ -2,15 +2,15 @@
 
 $font-color-1: #333333;
 $font-color-2: #82868A;
-$font-color-3: #0D73FC;
+$font-color-3: #1F918b;
 
-$background-color-1: #0D73FC;
+$background-color-1: #1F918b;
 $background-color-2: #EFF2F5;
 $background-color-3: #25272A;
 
 $border-color-1: #313234;
 $border-color-2: #82868A;
-$border-color-3: #0D73FC;
+$border-color-3: #1F918b;
 
 
 * {
@@ -299,13 +299,13 @@ header {
                     margin-left: 5px;
                     font-size: 12px;
                     color: red;
-                    display: none;
+                    // display: none;
                     position: absolute;
                 }
 
-                p.active {
-                    display: block;
-                }
+                // p.active {
+                //     display: block;
+                // }
 
                 input.error,
                 textarea.error {
