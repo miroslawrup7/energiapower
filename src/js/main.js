@@ -118,6 +118,42 @@ buttonLoc.addEventListener("click", (e) => {
     }
 });
 
+const markActivedInput = (input) => {
+    input.classList.add("active");
+}
+
+const unmarkActivedInput = (input) => {
+    input.classList.remove("active");
+}
+
+nameLoc.addEventListener("focus", (e) => {
+    markActivedInput(e.target); 
+});
+nameLoc.addEventListener("blur", (e) => {
+    unmarkActivedInput(e.target); 
+});
+
+mailLoc.addEventListener("focus", (e) => {
+    markActivedInput(e.target); 
+});
+mailLoc.addEventListener("blur", (e) => {
+    unmarkActivedInput(e.target); 
+});
+
+subjectLoc.addEventListener("focus", (e) => {
+    markActivedInput(e.target); 
+});
+subjectLoc.addEventListener("blur", (e) => {
+    unmarkActivedInput(e.target); 
+});
+
+messageLoc.addEventListener("focus", (e) => {
+    markActivedInput(e.target); 
+});
+messageLoc.addEventListener("blur", (e) => {
+    unmarkActivedInput(e.target); 
+});
+
 // slider
 const slidesLoc = document.querySelector(".slides");
 const slideLoc = document.querySelectorAll(".slides .slide");
