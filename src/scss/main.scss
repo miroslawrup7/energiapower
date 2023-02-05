@@ -3,6 +3,7 @@
 $font-color-1: #333333;
 $font-color-2: #82868A;
 $font-color-3: #1F918b;
+$font-color-4: #D33212;
 
 $background-color-1: #1F918b;
 $background-color-2: #EFF2F5;
@@ -12,6 +13,7 @@ $border-color-1: #313234;
 $border-color-2: #82868A;
 $border-color-3: #1F918b;
 $border-color-4: #34D1C9;
+$border-color-5: #D33212;
 
 * {
     margin: 0;
@@ -79,7 +81,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 5;
 
     .container {
         display: flex;
@@ -231,22 +233,23 @@ header {
     min-height: 800px;
     scroll-margin-top: 180px;
 
-
     .contact-container {
         display: flex;
         flex-wrap: wrap;
         gap: 60px;
 
-
         .form {
             width: calc(50% - 30px);
             min-height: 400px;
+            position: relative;
 
             form {
                 margin: 20px 0;
                 display: flex;
                 flex-wrap: wrap;
                 gap: 20px;
+                opacity: 1;
+                transition: opacity 0.5s;
 
                 input,
                 textarea {
@@ -276,21 +279,73 @@ header {
                     line-height: 1.2em;
                 }
 
-                button {
-                    padding: 10px 40px;
-                    font-size: 16px;
-                    background-color: $background-color-1;
-                    color: #fff;
+                .button-container {
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
                     margin-top: 20px;
-                    margin-left: auto;
-                    cursor: pointer;
-                    border: 1px solid #fff;
-                    transition: all .1s;
+                    align-items: center;
 
-                    &:hover {
-                        background-color: #fff;
-                        color: $font-color-3;
-                        border: 1px solid $border-color-3;
+                    .sending-info {
+                        display: flex;
+                        margin-bottom: 0;
+                        font-size: 14px;
+
+                        &.success-info {
+                            color: $font-color-3;
+                        }
+
+                        &.error-info {
+                            color: $font-color-4;
+                        }
+
+                    }
+
+                    button {
+                        padding: 10px 40px;
+                        font-size: 16px;
+                        background-color: $background-color-1;
+                        color: #fff;
+                        cursor: pointer;
+                        border: 1px solid #fff;
+                        transition: all .1s;
+
+                        &:hover {
+                            background-color: #fff;
+                            color: $font-color-3;
+                            border: 1px solid $border-color-3;
+                        }
+
+                        &.loading {
+                            position: relative;
+                            pointer-events: none;
+                            opacity: 0.5;
+                        }
+
+                        &.loading::after {
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 50%;
+                            border: 2px solid rgba(0, 0, 0, 0.2);
+                            border-right-color: rgba(0, 0, 0, 0.7);
+                            transform: translate(-50%, -50%) rotate(0deg);
+                            content: "";
+                            animation: rotateSingleLoading 0.6s infinite linear;
+                            z-index: 10;
+                        }
+
+                        @keyframes rotateSingleLoading {
+                            0% {
+                                transform: translate(-50%, -50%) rotate(0deg);
+                            }
+
+                            100% {
+                                transform: translate(-50%, -50%) rotate(360deg);
+                            }
+                        }
                     }
                 }
 
@@ -299,13 +354,35 @@ header {
                     margin-top: -2px;
                     margin-left: 5px;
                     font-size: 12px;
-                    color: red;
+                    color: $font-color-4;
                     position: absolute;
                 }
 
                 input.error,
                 textarea.error {
-                    border-color: red;
+                    border-color: $border-color-5;
+                }
+            }
+
+            .successSendingMessage {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                top: 50%;
+                transform: translateY(-50%);
+                opacity: 0;
+                transition: opacity 0.5s;
+                visibility: hidden;
+
+                h2 {
+                    margin-bottom: 0;
+                    color: $font-color-3;
+                }
+
+                p {
+                    text-align: center;
                 }
             }
         }

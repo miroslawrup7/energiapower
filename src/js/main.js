@@ -1,13 +1,17 @@
 // contact form validation
 
 const formLoc = document.querySelector("#contact-form");
+const successSendingMessageLoc = document.querySelector(".successSendingMessage");
 
 const nameLoc = document.querySelector("#name");
 const mailLoc = document.querySelector("#mail");
 const subjectLoc = document.querySelector("#subject");
 const messageLoc = document.querySelector("#message");
 
+const sendingInfoLoc = document.querySelector(".sending-info");
 const buttonLoc = document.querySelector("button");
+
+let validationPass;
 
 const validateEmpty = (input, turnOnErrorShow) => {
     if (!input.value.length) {
@@ -62,7 +66,12 @@ messageLoc.addEventListener("keyup", (e) => {
 
 buttonLoc.addEventListener("click", (e) => {
     e.preventDefault();
-    let validationPass = true;
+
+    sendingInfoLoc.innerText = "";
+    sendingInfoLoc.classList.remove("success-info");
+    sendingInfoLoc.classList.remove("error-info");
+
+    validationPass = true;
     validateEmpty(nameLoc, true); 
     validateEmpty(mailLoc, true); 
     validateEmail(mailLoc, true); 
@@ -71,16 +80,13 @@ buttonLoc.addEventListener("click", (e) => {
 
     if (validationPass) {
         console.log("Walidacja prawidłowa! :)");
+
+        buttonLoc.classList.add("loading");
+        buttonLoc.disabled = true;
         
         const formData = new FormData(formLoc);
-
-        console.log(formData)
-        
         const url = formLoc.getAttribute("action");
         const method = formLoc.getAttribute("method");
-
-        console.log(url)
-        console.log(method)
         
         fetch(url, {
             method: method.toUpperCase(),
@@ -88,30 +94,49 @@ buttonLoc.addEventListener("click", (e) => {
         })
         .then(res => res.json())
         .then(res => {
-            console.log(res)
-            if (res.errors) { //błędne pola
-                // const selectors = res.errors.map(el => `[name="${el}"]`);
-                // const fieldsWithErrors = form.querySelectorAll(selectors.join(","));
-                // for (const el of fieldsWithErrors) {
-                //     markFieldAsError(el, true);
-                //     toggleErrorField(el, true);
-                // }
-                console.log("errors")
-            } else { //pola są ok - sprawdzamy status wysyłki
+            console.log(res);
+            if (res.errors) { 
+                console.log("Niektóre pola formularza są niepoprawnie wypełnione.");
+                sendingInfoLoc.innerText = "Niektóre pola formularza są niepoprawnie wypełnione.";
+                sendingInfoLoc.classList.add("error-info");
+                buttonLoc.classList.remove("loading");
+                buttonLoc.disabled = false;
+            } else { 
                 if (res.status === "ok") {
-                    //wyświetlamy komunikat powodzenia, cieszymy sie
-                    console.log("status OK")
+                    console.log("Wiadomość wysłana pomyślnie.");
+                    // sendingInfoLoc.innerText = "Wiadomość wysłana pomyślnie.";
+                    // sendingInfoLoc.classList.add("success-info");
+                    buttonLoc.classList.remove("loading");
+                    buttonLoc.disabled = false;
+                    // wyświetla wiadomość
+                    formLoc.style.opacity = "0";
+                    successSendingMessageLoc.style.opacity = "1";
+                    successSendingMessageLoc.style.visibility = "visible";
+                    formLoc.reset();
+                    setTimeout(() => {
+                        formLoc.style.opacity = "1";
+                        successSendingMessageLoc.style.opacity = "0";
+                        successSendingMessageLoc.style.visibility = "hidden";
+                    }, 4000);
                 }
                 if (res.status === "error") {
-                    //komunikat błędu, niepowodzenia
-                    console.log("status ERROR")
+                    console.log("Wiadomości nie wysłano.");
+                    sendingInfoLoc.innerText = "Wiadomości nie wysłano.";
+                    sendingInfoLoc.classList.add("error-info");
+                    buttonLoc.classList.remove("loading");
+                    buttonLoc.disabled = false;
                 }
             }
         })
         .catch((err) => {
-            // buttonLoc.disabled = false;
-            // submit.classList.remove("loading");
+            buttonLoc.classList.remove("loading");
+            buttonLoc.disabled = false;
             console.log(err)
+        })
+        .finally(() => {
+            buttonLoc.classList.remove("loading");
+            buttonLoc.disabled = false;
+            
         })
     } else {
         console.log("Walidacja nieprawidłowa! :(");
