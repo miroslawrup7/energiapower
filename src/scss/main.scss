@@ -98,7 +98,7 @@ header {
             margin: 0 40px;
 
             img {
-                height: 100px;
+                height: 90px;
             }
         }
 
@@ -186,7 +186,7 @@ header {
 }
 
 .about {
-    min-height: 400px;
+    min-height: 350px;
     background-color: $background-color-1;
     color: #fff;
     scroll-margin-top: 180px;
@@ -481,7 +481,7 @@ footer {
                     gap: 16px;
 
                     img {
-                        height: 20px;
+                        height: 17px;
                         cursor: pointer;
                         transition: scale .1s ease-out;
 
