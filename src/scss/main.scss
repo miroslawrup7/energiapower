@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
 $font-color-1: #333333;
 $font-color-2: #82868A;
@@ -25,7 +26,7 @@ $border-color-5: #D33212;
     outline: 0;
     box-sizing: border-box;
     background-color: transparent;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     color: $font-color-1;
 }
@@ -44,19 +45,21 @@ html {
 }
 
 h1 {
-    font-weight: 700;
-    font-size: 42px;
-    margin-bottom: 30px;
+    font-weight: 500;
+    font-size: 36px;
+    margin-bottom: 18px;
+    font-family: 'Roboto', sans-serif;
 }
 
 h2 {
-    font-weight: 700;
-    font-size: 30px;
-    margin-bottom: 30px;
+    font-weight: 500;
+    font-size: 26px;
+    margin-bottom: 18px;
+    font-family: 'Roboto', sans-serif;
 }
 
 p {
-    font-size: 22px;
+    font-size: 14px;
     margin-bottom: 10px;
 }
 
@@ -65,7 +68,7 @@ p {
 }
 
 .inner-space-no-bg {
-    padding: 20px 80px 0;
+    padding: 0px 80px 0;
 }
 
 
@@ -110,12 +113,13 @@ header {
 
                 li {
 
-                    padding: 0 10px;
-                    margin: 0 10px;
+
+                    margin: 0 5px;
 
                     a {
-                        font-size: 20px;
-                        font-weight: 700;
+                        font-size: 18px;
+                        font-weight: 500;
+                        padding: 0 10px;
 
                         &:hover {
                             color: $font-color-3;
@@ -128,7 +132,7 @@ header {
 }
 
 .hero {
-    height: 600px;
+    height: 400px;
     scroll-margin-top: 180px;
     position: relative;
     overflow: hidden;
@@ -182,7 +186,7 @@ header {
 }
 
 .about {
-    min-height: 500px;
+    min-height: 400px;
     background-color: $background-color-1;
     color: #fff;
     scroll-margin-top: 180px;
@@ -197,24 +201,24 @@ header {
 }
 
 .offer {
-    min-height: 800px;
     scroll-margin-top: 180px;
 
     .offer-container {
-        min-height: 400px;
-        margin: 60px 0;
+        margin: 40px 0;
         display: flex;
         gap: 40px;
 
         .picture {
             width: 50%;
             overflow: hidden;
+            height: 300px;
+            display: flex;
 
             img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                object-position: center;
+                overflow: hidden;
             }
         }
 
@@ -225,6 +229,10 @@ header {
 
         &:nth-of-type(2n) {
             flex-direction: row-reverse;
+        }
+
+        &:nth-of-type(1) {
+            margin-top: 20px;
         }
     }
 }
@@ -240,7 +248,7 @@ header {
 
         .form {
             width: calc(50% - 30px);
-            min-height: 400px;
+            min-height: 300px;
             position: relative;
 
             form {
@@ -255,8 +263,9 @@ header {
                 textarea {
                     border: 1px solid $border-color-2;
                     padding: 8px 12px;
-                    font-size: 16px;
+                    font-size: 13px;
                     width: 100%;
+                    font-weight: 500;
 
                     &.active {
                         border-color: $border-color-4;
@@ -275,7 +284,7 @@ header {
 
                 textarea[name="message"] {
                     width: 100%;
-                    height: 160px;
+                    height: 100px;
                     line-height: 1.2em;
                 }
 
@@ -283,7 +292,7 @@ header {
                     display: flex;
                     width: 100%;
                     justify-content: space-between;
-                    margin-top: 20px;
+                    margin-top: 5px;
                     align-items: center;
 
                     .sending-info {
@@ -303,7 +312,7 @@ header {
 
                     button {
                         padding: 10px 40px;
-                        font-size: 16px;
+                        font-size: 14px;
                         background-color: $background-color-1;
                         color: #fff;
                         cursor: pointer;
@@ -375,6 +384,7 @@ header {
                 opacity: 0;
                 transition: opacity 0.5s;
                 visibility: hidden;
+                width: 100%;
 
                 h2 {
                     margin-bottom: 0;
@@ -389,24 +399,27 @@ header {
 
         .address-data {
             width: calc(50% - 30px);
-            min-height: 400px;
+            min-height: 300px;
             background-color: $background-color-1;
             padding: 30px 40px;
 
             h2 {
                 color: #fff;
+                font-size: 24px;
+                font-weight: 400;
+                margin-bottom: 30px;
             }
 
             .address-line {
                 display: flex;
                 align-items: center;
-                margin-bottom: 20px;
+                margin-bottom: 12px;
 
                 a,
                 p {
                     color: #fff;
                     display: block;
-                    font-size: 22px;
+                    font-size: 16px;
                     margin-bottom: 0;
                     transition: all 0.2s;
                 }
@@ -418,10 +431,10 @@ header {
                 .img-container {
                     display: flex;
                     justify-content: center;
-                    width: 60px;
+                    width: 40px;
 
                     img {
-                        height: 26px;
+                        height: 20px;
                     }
                 }
             }
@@ -441,7 +454,8 @@ footer {
     .top-footer {
         .container {
             display: flex;
-            padding: 40px;
+            padding: 40px 100px;
+
             justify-content: space-between;
 
             .top-footer-box {
@@ -453,10 +467,11 @@ footer {
             .logo-socials {
                 display: flex;
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
+
 
                 img {
-                    height: 100px;
+                    height: 80px;
                     justify-content: left;
                 }
 
@@ -490,7 +505,7 @@ footer {
                 p {
                     color: $font-color-2;
                     display: block;
-                    font-size: 18px;
+                    font-size: 14px;
                     margin-bottom: 0;
                     font-weight: 300;
                 }
@@ -517,7 +532,7 @@ footer {
                 p {
                     color: $font-color-2;
                     display: block;
-                    font-size: 18px;
+                    font-size: 14px;
                     margin-bottom: 0;
                     font-weight: 300;
                 }
@@ -537,16 +552,17 @@ footer {
 
         .container {
             display: flex;
-            padding: 0 40px;
+            padding: 0 100px;
             justify-content: space-between;
-            // border: 1px solid red;
             width: 100%;
 
             .copyrights {
-                color: $font-color-2
+                color: $font-color-2;
+                font-size: 14px;
             }
 
             .regulations {
+                font-size: 14px;
                 color: $font-color-2;
 
                 a {
