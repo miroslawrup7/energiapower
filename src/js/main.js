@@ -207,3 +207,31 @@ if (slideLoc) {
 
     }, 5000);
 }
+
+// mobile menu
+
+const hamburgerLoc = document.querySelector(".hamburger");
+const mobileMenuLoc = document.querySelector("header nav > ul");
+const hamburgerBarsLoc = document.querySelector(".hamburger .bars");
+
+hamburgerLoc.addEventListener("click", () => {
+    mobileMenuLoc.classList.toggle("show");
+    hamburgerBarsLoc.classList.toggle("ham");
+
+    const mobileMenuElemLoc = document.querySelectorAll("header nav ul.show li a");
+ 
+    mobileMenuElemLoc.forEach(elem => {
+        elem.addEventListener("click", () => {
+            console.log("SDFSGDF")
+            mobileMenuLoc.classList.remove("show");
+            hamburgerBarsLoc.classList.add("ham");
+        });
+    });
+});
+
+
+    
+    
+
+
+

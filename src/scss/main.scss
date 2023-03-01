@@ -709,7 +709,93 @@ footer {
     header {
         .container {
             nav {
-                display: none;
+
+                ul.show {
+                    left: 0;
+                    transition: left ease-out .5s;
+                }
+
+                ul {
+                    transition: left ease-out .5s;
+                    display: flex;
+                    position: fixed;
+                    top: 0;
+                    left: -500px;
+                    min-height: 100vh;
+                    min-width: fit-content;
+                    width: 30%;
+                    background: white;
+                    z-index: 3;
+                    flex-direction: column;
+                    padding: 80px 15px 0 15px;
+
+                    li {
+                        padding: 10px;
+
+                        a {
+                            font-size: 20px;
+                        }
+                    }
+
+
+                }
+
+                .hamburger {
+                    padding: 10px 15px;
+                    border: solid 1px $border-color-3;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 20px;
+
+                    .bars {
+                        position: relative;
+                        cursor: pointer;
+
+                        .icon-bar {
+                            background-color: $border-color-3;
+                            display: block;
+                            width: 15px;
+                            height: 2px;
+                            position: relative;
+                            transition: all 0.3s;
+
+                            &:nth-child(1) {
+                                transform: rotate(45deg);
+                                top: 5px;
+                            }
+
+                            &:nth-child(2) {
+                                opacity: 0;
+                                margin: 3px 0;
+                            }
+
+                            &:nth-child(3) {
+                                transform: rotate(-45deg);
+                                bottom: 5px;
+                            }
+                        }
+                    }
+
+                    .bars.ham {
+                        .icon-bar {
+                            &:nth-child(1) {
+                                transform: rotate(0);
+                                top: 0;
+                            }
+
+                            &:nth-child(2) {
+                                opacity: 1;
+                                margin: 3px 0;
+                            }
+
+                            &:nth-child(3) {
+                                transform: rotate(0);
+                                bottom: 0;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
